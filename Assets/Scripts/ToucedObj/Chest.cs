@@ -9,7 +9,8 @@ public class Chest : MonoBehaviour,ITouchedObj
     private bool touchOn;
     public Collider2D directIcon;
     float rotateSpeed = 0.5f;
-    float moveTimeCycle = 1.2f;
+    [SerializeField] float MaxTimeCycle = 1f;
+    float moveTimeCycle = 1f;
     bool iconmoveUp = false;
 
 
@@ -24,19 +25,6 @@ public class Chest : MonoBehaviour,ITouchedObj
     // Update is called once per frame
     void Update()
     {
-        //directIcon.transform.Rotate(Vector3.forward, rotateSpeed * Time.deltaTime);
-        //if ()
-        //{
-        //if(moveTimeCycle<=0)
-        //{
-        //    moveTimeCycle -= Time.deltaTime;
-        //    directIcon.transform.Translate(Vector3.up * rotateSpeed * Time.deltaTime);
-
-        //}
-        //else
-        //{
-
-        //}
 
         if (iconmoveUp)
         {
@@ -45,7 +33,7 @@ public class Chest : MonoBehaviour,ITouchedObj
             if (moveTimeCycle<=0)
             {
                 iconmoveUp = false;
-                moveTimeCycle = 1.2f;
+                moveTimeCycle = MaxTimeCycle;
             }
         }
         else
@@ -55,10 +43,9 @@ public class Chest : MonoBehaviour,ITouchedObj
             if (moveTimeCycle <= 0)
             {
                 iconmoveUp = true;
-                moveTimeCycle = 1.2f;
+                moveTimeCycle = MaxTimeCycle;
             }
         }
-        //}
 
 
     }
